@@ -1,0 +1,33 @@
+{
+  "name": "kuzmich/text-to-speech",
+  "description": "Text To Speech",
+  "license": "NIT",
+  "authors": [
+    {
+      "name": "Sergey V. Kuzin",
+      "email": "sergey@kuzin.name"
+    }
+  ],
+  "require-dev": {
+    "php": ">=5.5",
+    "phpunit/phpunit": "~4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "TTS\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TTS\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
