@@ -54,7 +54,6 @@ class TextToSpeech
     public function process()
     {
         $this->textToFile($this->text);
-        var_dump($this->files);
 
         return $this;
     }
@@ -64,7 +63,7 @@ class TextToSpeech
         if (!$text) {
             return array();
         }
-        var_dump($text);
+
         $cacheDir = $this->getCacheDir();
         if (!is_dir($cacheDir) || !is_writable($cacheDir)) {
             throw new Exception('Can not write to ' . $cacheDir);
@@ -78,7 +77,6 @@ class TextToSpeech
         if (true || !is_file($fileName)) {
             $content = $this->driver->make($text, $fileName);
             file_put_contents($fileName, $content);
-            var_dump($fileName);
         }
         //$ttsCache = \TtsCache::fundByUiq($uiq);
         //if ($ttsCache) {
