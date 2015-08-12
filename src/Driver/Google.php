@@ -30,6 +30,8 @@ class Google extends AbstractAdapter
                 'tl'        => $this->getLanguage(),
                 'ttsspeed'  => $this->getSpeed(),
                 'q'         => $line,
+                'ie'        => 'UTF-8',
+                'client'    => 't'
             ];
             $content .= $this->reguestGet($query);
         }
@@ -38,6 +40,6 @@ class Google extends AbstractAdapter
 
     public function getUri()
     {
-        return 'http://translate.google.com/translate_tts';
+        return 'https://translate.google.ru/translate_tts';
     }
 }
