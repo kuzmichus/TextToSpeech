@@ -77,7 +77,7 @@ abstract class AbstractAdapter
         $headers = [
             'User-Agent'    => 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.872.0 Safari/535.2'
         ];
-        unset($params['ttsspeed']);
+
         try {
             $response = $this->client->get($this->getUri(), ['debug' => $this->debug, 'query' => $params, 'headers' => $headers]);
         } catch (RequestException $e) {

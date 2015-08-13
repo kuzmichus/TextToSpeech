@@ -74,25 +74,10 @@ class TextToSpeech
         }
 
         $fileName = $this->prepareFileName($text);
-        if (true || !is_file($fileName)) {
+        if (!is_file($fileName)) {
             $content = $this->driver->make($text, $fileName);
             file_put_contents($fileName, $content);
         }
-        //$ttsCache = \TtsCache::fundByUiq($uiq);
-        //if ($ttsCache) {
-        //    $ttsCache->incrementTimes()->save();
-        // } else {
-        //    $ttsCache = new \TtsCache();
-        //    if (!$ttsCache->setUiq($uiq)->setString($text)->setVoiceFemale()->save()) {
-        //        $message = 'SQL Eroor: '. PHP_EOL;
-        //        foreach ($ttsCache->getMessages() as $m) {
-        //            $message .= $m . PHP_EOL;
-        //        }
-        //        throw new \TTS\Exceptions($message);
-        //    }
-        //}
-        //unset($ttsCache);
-
 
         $this->files[] = $fileName;
 
