@@ -8,6 +8,11 @@
       "email": "sergey@kuzin.name"
     }
   ],
+  "require": {
+    "guzzlehttp/guzzle": "~5.0",
+    "guzzlehttp/log-subscriber": "^1.0",
+    "psr/log": "1.0.0"
+  },
   "require-dev": {
     "php": ">=5.5",
     "phpunit/phpunit": "~4.7"
@@ -21,9 +26,6 @@
     "psr-4": {
       "TTS\\Tests\\": "tests/"
     }
-  },
-  "require": {
-    "guzzlehttp/guzzle": "~6.0"
   },
   "extra": {
     "branch-alias": {
