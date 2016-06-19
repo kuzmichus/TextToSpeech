@@ -91,6 +91,6 @@ abstract class AbstractAdapter
         return $response->getBody()->getContents();
     }
 
-        abstract public function getUri();
+    abstract public function getUri();
     abstract public function make($text, $fileName);
 }

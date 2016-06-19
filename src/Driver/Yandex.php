@@ -20,7 +20,6 @@ class Yandex extends AbstractAdapter
 
     public function make($text, $fileName)
     {
-
         $sp = new SplitterText();
         $text = iconv('UTF-8', 'UTF-8', $text);
 
@@ -32,6 +31,12 @@ class Yandex extends AbstractAdapter
                 'lang'       => $this->getLanguage(),
                 'quality'   => 'hi',
                 'text'      => $line,
+                'speaker'   => 'omazh', // jane, omazh, zahar, ermil
+                'mixed'   => 'mixed', // good (доброжелательный), neutral(нейтральный), evil (злой), mixed (переменная окраска).
+                //'drunk' => 'true',
+                //'robot' => 'true',
+                //'ill'   => 'true',
+                'key'       => '7dc83e6f-7a54-4fac-a651-0ef471177aa3'
             ];
             $content .= $this->reguestGet($query);
         }
@@ -40,6 +45,7 @@ class Yandex extends AbstractAdapter
 
     public function getUri()
     {
-        return 'http://tts.voicetech.yandex.net/tts';
+        //return 'http://tts.voicetech.yandex.net/tts';
+        return 'https://tts.voicetech.yandex.net/generate';
     }
 }

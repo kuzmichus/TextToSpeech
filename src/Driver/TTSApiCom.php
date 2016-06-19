@@ -10,24 +10,21 @@
 
 namespace TTS\Driver;
 
-use TTS\Helper\SplitterText;
 
-class iSpeech extends AbstractAdapter
+class TTSApiCom extends AbstractAdapter
 {
-    protected $name = 'iSpeech';
+    protected $name = 'TTSApiCom';
     protected $voice = 'male';
 
     protected $speed = 0;
 
     protected $languageMap = [
-        'en_GB' => 'en',
-        'en_EN' => 'en',
-        'ru_RU' => 'rurussianmale'
+        'en_GB' => 'en'
     ];
 
     public function getUri()
     {
-        return 'http://www.ispeech.org/p/generic/getaudio';
+        return 'http://tts-api.com/tts.mp3';
     }
 
     public function make($text, $fileName)
@@ -35,17 +32,15 @@ class iSpeech extends AbstractAdapter
         $sp = new SplitterText();
         $text = iconv('UTF-8', 'UTF-8', $text);
 
-        $lines = $sp->split($text, 100);
+        $lines = $sp->split($text, 1000);
         $content = '';
         foreach ($lines as $line) {
             $query = [
-                'voice'     => $this->getLanguage(),
-                'speed'     => $this->getSpeed(),
-                'text'      => $line,
-                'action'    => 'convert'
+                'q' => $line
             ];
             $content .= $this->reguestGet($query);
         }
         return $content;
     }
 }
+

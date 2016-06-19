@@ -5,5 +5,4 @@ namespace TTS\Helper;
 
 class AbstractHelper
 {
-
 }
