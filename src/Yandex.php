@@ -20,6 +20,8 @@ class Yandex extends TextToSpeechAbstract
     use OnlineTrait;
 
     const SPEAKER_JANE = 'jane';
+    const SPEAKER_OKSANA = 'oksana';
+    const SPEAKER_ALYSS = 'alyss';
     const SPEAKER_OMAZH = 'omazh';
     const SPEAKER_ZAHAR = 'zahar';
     const SPEAKER_ERMIL = 'ermil';
@@ -28,7 +30,7 @@ class Yandex extends TextToSpeechAbstract
 
     protected $vote = self::VOTE_FEMALE;
 
-    protected $speaker = 'omazh';
+    protected $speaker = 'oksana';
 
     protected $apiKey;
     /**
@@ -59,7 +61,9 @@ class Yandex extends TextToSpeechAbstract
                 'quality'   => 'hi',
                 'text'      => $line,
                 'speaker'   => $this->speaker, // jane, omazh, zahar, ermil
-                'emotion'   => 'neutral', // good (доброжелательный), neutral(нейтральный), evil (злой), mixed (переменная окраска).
+                'emotion'   => 'good', // neutral (доброжелательный), neutral(нейтральный), evil (злой).
+                'lang'      => 'ru‑RU',
+                'speed'     => 1.2,
                 //'drunk' => 'true',
                 //'robot' => 'true',
                 //'ill'   => 'true',
@@ -83,6 +87,18 @@ class Yandex extends TextToSpeechAbstract
     public function getSpeaker()
     {
         return $this->speaker;
+    }
+
+    public function setOksanaSpeaker()
+    {
+        $this->speaker = self::SPEAKER_OKSANA;
+        $this->vote = self::VOTE_FEMALE;
+    }
+
+    public function setAlyssSpeaker()
+    {
+        $this->speaker = self::SPEAKER_ALYSS;
+        $this->vote = self::VOTE_FEMALE;
     }
 
     public function setJaneSpeaker()

@@ -1,7 +1,7 @@
 {
   "name": "kuzmich/text-to-speech",
   "description": "Text To Speech",
-  "license": "NIT",
+  "license": "MIT",
   "authors": [
     {
       "name": "Sergey V. Kuzin",
@@ -9,12 +9,11 @@
     }
   ],
   "require": {
-    "guzzlehttp/guzzle": "~5.0",
-    "guzzlehttp/log-subscriber": "^1.0",
-    "psr/log": "1.0.0"
+    "php": ">=5.6",
+    "guzzlehttp/guzzle": "~6.0",
+    "psr/log": "^1.0"
   },
   "require-dev": {
-    "php": ">=5.5",
     "phpunit/phpunit": "~5.0"
   },
   "autoload": {

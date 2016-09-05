@@ -16,6 +16,8 @@ use GuzzleHttp\Exception\RequestException;
 trait OnlineTrait
 {
 
+    protected $debug = false;
+
     public function reguestGet($params)
     {
         $headers = [
@@ -28,8 +30,7 @@ trait OnlineTrait
             $response = $this->client->get($this->getUri(), ['debug' => $this->debug, 'query' => $params, 'headers' => $headers]);
         } catch (RequestException $e) {
             echo $e->getMessage();
-            var_dump($e->getResponse()->getStatusCode());
-            var_dump($e->getResponse()->getHeaders());
+
             if ($e->hasResponse()) {
             }
             die('error');

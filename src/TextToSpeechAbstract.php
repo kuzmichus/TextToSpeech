@@ -110,6 +110,7 @@ abstract class TextToSpeechAbstract
                 $pathParts[] = $this->driver;
                 $pathParts[] = $this->vote;
                 $pathParts[] = $this->speaker;
+
                 $pathParts = array_merge($pathParts, str_split(substr($result->getCacheKey(), 0, 4), 2));
 
                 $fileName = implode('/', $pathParts);
@@ -128,7 +129,7 @@ abstract class TextToSpeechAbstract
                 $result->setCached(true);
                 $this->results[] = $result;
             } else {
-                var_dump($this->synthesize($line, $fileName));
+                $this->synthesize($line, $fileName);
                 $this->results[] = $result;
             }
         }
